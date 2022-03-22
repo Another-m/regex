@@ -62,7 +62,7 @@ def merging_lists(list_1, list_2, index_str):
     else: new_list.append(list_2[i])
   return new_list
 
-
+  # Основная функция обработки данных 
 def repair_contact_list(contacts_list):
   contacts_list_new = []
   check_list = []
@@ -75,7 +75,7 @@ def repair_contact_list(contacts_list):
     # Если нет имени либо имени и отчества, змаменяем пустыми ячейками
     quantity = 3 - len(new_string)
     new_string += [''] * quantity
-
+    # Продолжаем собирать контактные данные в новый список
     new_string.append(string[3])
     new_string.append(string[4])
     new_string.append(edit_mum_ph(string[5]))
@@ -87,7 +87,6 @@ def repair_contact_list(contacts_list):
       contacts_list_new.append(new_string)
     elif check_d[0] == 1:
       contacts_list_new[check_d[1]] = merging_lists(contacts_list_new, new_string, check_d[1])
-
       n = 0
       for j in range(check_d[1] * len(new_string), check_d[1] * len(new_string) + len(new_string)):
         check_list[j] = contacts_list_new[check_d[1]][n]
